@@ -1,0 +1,326 @@
+[
+  {
+    "id": "2bd22715-ce34-40ac-9609-08d0991261fc",
+    "ownerId": "5d12f628-425f-4f20-9dd3-806071417b4c",
+    "title": "Denim Jacket",
+    "description": "Classic blue denim jacket, barely worn, great for layering in fall.",
+    "category": "Outerwear",
+    "type": "Jacket",
+    "size": "M",
+    "condition": "Like new",
+    "tags": [
+      "denim",
+      "jacket",
+      "casual"
+    ],
+    "images": [
+      "/uploads/seed-denim-jacket.svg"
+    ],
+    "pointValue": 80,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-08-31T08:14:16.331Z"
+  },
+  {
+    "id": "d98ade55-59c2-4bf3-94ca-7f4a5d6da99c",
+    "ownerId": "5d12f628-425f-4f20-9dd3-806071417b4c",
+    "title": "Floral Summer Dress",
+    "description": "Light floral dress, perfect for summer outings. Worn twice.",
+    "category": "Dresses",
+    "type": "Dress",
+    "size": "S",
+    "condition": "Like new",
+    "tags": [
+      "floral",
+      "summer",
+      "dress"
+    ],
+    "images": [
+      "/uploads/seed-floral-summer-dress.svg"
+    ],
+    "pointValue": 60,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-09-02T08:14:16.336Z"
+  },
+  {
+    "id": "f9c88b85-d399-42d7-bcb7-bafafd82e755",
+    "ownerId": "5d12f628-425f-4f20-9dd3-806071417b4c",
+    "title": "White Sneakers",
+    "description": "Comfortable white sneakers, minor scuffing on the toe.",
+    "category": "Footwear",
+    "type": "Sneakers",
+    "size": "M",
+    "condition": "Good",
+    "tags": [
+      "sneakers",
+      "shoes",
+      "white"
+    ],
+    "images": [
+      "/uploads/seed-white-sneakers.svg"
+    ],
+    "pointValue": 45,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-09-05T08:14:16.339Z"
+  },
+  {
+    "id": "a9056c3f-afc3-4840-b9eb-1509ee9936f3",
+    "ownerId": "5d12f628-425f-4f20-9dd3-806071417b4c",
+    "title": "Wool Scarf (needs review)",
+    "description": "Cozy wool scarf in burgundy, brand new with tags.",
+    "category": "Accessories",
+    "type": "Scarf",
+    "size": "M",
+    "condition": "New with tags",
+    "tags": [
+      "scarf",
+      "wool",
+      "winter"
+    ],
+    "images": [
+      "/uploads/seed-wool-scarf-needs-review.svg"
+    ],
+    "pointValue": 25,
+    "status": "pending",
+    "availability": "available",
+    "createdAt": "2026-09-19T08:14:16.342Z"
+  },
+  {
+    "id": "c3435a99-eb94-4aa2-b9c1-0227e098119b",
+    "ownerId": "a796ccf4-4481-4baf-8f27-2959a760b682",
+    "title": "Graphic T-Shirt",
+    "description": "Retro band graphic tee, soft cotton, size M.",
+    "category": "Tops",
+    "type": "T-Shirt",
+    "size": "M",
+    "condition": "Good",
+    "tags": [
+      "tshirt",
+      "graphic",
+      "retro"
+    ],
+    "images": [
+      "/uploads/seed-graphic-t-shirt.svg"
+    ],
+    "pointValue": 30,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-08-26T08:14:16.345Z"
+  },
+  {
+    "id": "8554a9e0-6430-4fe2-9db3-17249926acf5",
+    "ownerId": "a796ccf4-4481-4baf-8f27-2959a760b682",
+    "title": "Slim Fit Chinos",
+    "description": "Khaki slim fit chinos, great condition, versatile for work or casual.",
+    "category": "Bottoms",
+    "type": "Chinos",
+    "size": "L",
+    "condition": "Good",
+    "tags": [
+      "chinos",
+      "pants",
+      "khaki"
+    ],
+    "images": [
+      "/uploads/seed-slim-fit-chinos.svg"
+    ],
+    "pointValue": 50,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-08-29T08:14:16.350Z"
+  },
+  {
+    "id": "27034d26-b243-4975-9121-476e9f2fff0c",
+    "ownerId": "a796ccf4-4481-4baf-8f27-2959a760b682",
+    "title": "Leather Belt",
+    "description": "Genuine leather belt, brown, adjustable buckle.",
+    "category": "Accessories",
+    "type": "Belt",
+    "size": "L",
+    "condition": "Good",
+    "tags": [
+      "belt",
+      "leather"
+    ],
+    "images": [
+      "/uploads/seed-leather-belt.svg"
+    ],
+    "pointValue": 20,
+    "status": "approved",
+    "availability": "reserved",
+    "createdAt": "2026-09-08T08:14:16.353Z"
+  },
+  {
+    "id": "fd8c0a62-a9af-4578-ad6f-dcce80062d03",
+    "ownerId": "a796ccf4-4481-4baf-8f27-2959a760b682",
+    "title": "Running Shorts",
+    "description": "Breathable running shorts, lightly used, size L.",
+    "category": "Activewear",
+    "type": "Shorts",
+    "size": "L",
+    "condition": "Good",
+    "tags": [
+      "running",
+      "shorts",
+      "activewear"
+    ],
+    "images": [
+      "/uploads/seed-running-shorts.svg"
+    ],
+    "pointValue": 25,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-09-10T08:14:16.355Z"
+  },
+  {
+    "id": "cce9fae5-0563-4a5a-af4b-5a22538ffbc4",
+    "ownerId": "dcc5e44a-ef53-4071-8ebc-c2f991b5c688",
+    "title": "Knit Sweater",
+    "description": "Warm knit sweater in cream color, perfect for winter.",
+    "category": "Tops",
+    "type": "Sweater",
+    "size": "S",
+    "condition": "Like new",
+    "tags": [
+      "sweater",
+      "knit",
+      "winter"
+    ],
+    "images": [
+      "/uploads/seed-knit-sweater.svg"
+    ],
+    "pointValue": 55,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-08-23T08:14:16.359Z"
+  },
+  {
+    "id": "c72f51a6-6c4c-4aba-bc7c-1ac42beb1cc2",
+    "ownerId": "dcc5e44a-ef53-4071-8ebc-c2f991b5c688",
+    "title": "High-Waisted Jeans",
+    "description": "Trendy high-waisted jeans, dark wash, true to size.",
+    "category": "Bottoms",
+    "type": "Jeans",
+    "size": "M",
+    "condition": "Good",
+    "tags": [
+      "jeans",
+      "denim",
+      "highwaist"
+    ],
+    "images": [
+      "/uploads/seed-high-waisted-jeans.svg"
+    ],
+    "pointValue": 55,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-09-06T08:14:16.363Z"
+  },
+  {
+    "id": "7cc802ac-607d-4b46-8a8d-21dd087c7bd7",
+    "ownerId": "dcc5e44a-ef53-4071-8ebc-c2f991b5c688",
+    "title": "Puffer Vest",
+    "description": "Lightweight puffer vest, navy blue, great for transitional weather.",
+    "category": "Outerwear",
+    "type": "Vest",
+    "size": "M",
+    "condition": "Like new",
+    "tags": [
+      "puffer",
+      "vest",
+      "outerwear"
+    ],
+    "images": [
+      "/uploads/seed-puffer-vest.svg"
+    ],
+    "pointValue": 65,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-09-12T08:14:16.367Z"
+  },
+  {
+    "id": "10e0e9b7-aca3-4a96-9848-18a317242987",
+    "ownerId": "dcc5e44a-ef53-4071-8ebc-c2f991b5c688",
+    "title": "Canvas Tote Bag",
+    "description": "Sturdy canvas tote bag, natural color, great for groceries or books.",
+    "category": "Accessories",
+    "type": "Bag",
+    "size": "M",
+    "condition": "New with tags",
+    "tags": [
+      "tote",
+      "bag",
+      "canvas"
+    ],
+    "images": [
+      "/uploads/seed-canvas-tote-bag.svg"
+    ],
+    "pointValue": 20,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-09-15T08:14:16.370Z"
+  },
+  {
+    "id": "0cde71c2-20f9-4e40-b847-2e6948947c10",
+    "ownerId": "a796ccf4-4481-4baf-8f27-2959a760b682",
+    "title": "Outdated Hoodie (spam test)",
+    "description": "This listing was rejected during moderation for demo purposes.",
+    "category": "Tops",
+    "type": "Hoodie",
+    "size": "L",
+    "condition": "Fair",
+    "tags": [
+      "hoodie"
+    ],
+    "images": [
+      "/uploads/seed-outdated-hoodie-spam-test.svg"
+    ],
+    "pointValue": 15,
+    "status": "rejected",
+    "availability": "available",
+    "createdAt": "2026-08-21T08:14:16.373Z"
+  },
+  {
+    "id": "4e614935-73d0-41f4-9027-409f1ff8fa4c",
+    "ownerId": "b4e770ee-aba6-49a1-a5df-a4dca62b3371",
+    "title": "Vintage Corduroy Jacket",
+    "description": "A warm corduroy jacket from Dana, great for autumn walks.",
+    "category": "Outerwear",
+    "type": "Jacket",
+    "size": "M",
+    "condition": "Good",
+    "tags": [
+      "corduroy",
+      "vintage"
+    ],
+    "images": [
+      "/uploads/d9aa7ee2-5bb2-4fb6-83da-fb46226667f9.jpg"
+    ],
+    "pointValue": 70,
+    "status": "approved",
+    "availability": "swapped",
+    "createdAt": "2026-09-20T08:14:23.383Z"
+  },
+  {
+    "id": "220f1610-3f5b-4ffd-8b2d-f9a66a23d047",
+    "ownerId": "be986f92-22fa-4c05-accf-ac2528e25f51",
+    "title": "Test Hat",
+    "description": "A simple hat used for permission boundary testing.",
+    "category": "Accessories",
+    "type": "Hat",
+    "size": "M",
+    "condition": "Good",
+    "tags": [
+      "hat"
+    ],
+    "images": [
+      "/uploads/c46ade8c-e6b0-442c-b0a8-778211cd0e1c.jpg"
+    ],
+    "pointValue": 10,
+    "status": "approved",
+    "availability": "available",
+    "createdAt": "2026-09-20T08:14:24.926Z"
+  }
+]
