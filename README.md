@@ -1,7 +1,9 @@
+<img width="1194" height="898" alt="image" src="https://github.com/user-attachments/assets/87c792ff-497d-465f-8c3c-95905063168c" />
+
 # ReWear Community Clothing Exchange
 
 Swap unused clothing directly or redeem items with points. A demo-ready,
-full-stack Next.js app with **no external database** — everything is
+full-stack Next.js app with **no external database** everything is
 persisted to local JSON files.
 
 ## Stack
