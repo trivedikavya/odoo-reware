@@ -48,11 +48,43 @@ function svgPlaceholder(label: string, color: string): string {
 </svg>`;
 }
 
+/** Fallback used when a real photo can't be downloaded (e.g. no network). */
 async function saveSeedImage(slug: string, label: string, color: string): Promise<string> {
   const filename = `seed-${slug}.svg`;
   const filePath = path.join(UPLOAD_DIR, filename);
   await fs.writeFile(filePath, svgPlaceholder(label, color), "utf-8");
   return `/uploads/${filename}`;
+}
+
+/**
+ * Downloads a real photo (from Wikimedia Commons — freely licensed, no API
+ * key required) so the demo looks realistic instead of showing colored
+ * placeholder boxes. Falls back to the SVG placeholder if the download
+ * fails (e.g. running the seed script with no internet access).
+ */
+async function fetchSeedImage(
+  slug: string,
+  url: string,
+  fallbackLabel: string,
+  fallbackColor: string
+): Promise<string> {
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "ReWearSeedScript/1.0 (demo project; no contact)" },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const contentType = res.headers.get("content-type") || "";
+    const ext = contentType.includes("png") ? "png" : "jpg";
+    const bytes = Buffer.from(await res.arrayBuffer());
+    const filename = `seed-${slug}.${ext}`;
+    await fs.writeFile(path.join(UPLOAD_DIR, filename), bytes);
+    return `/uploads/${filename}`;
+  } catch (err) {
+    console.warn(
+      `  ! Couldn't download photo for "${fallbackLabel}" (${(err as Error).message}) — using placeholder instead.`
+    );
+    return saveSeedImage(slug, fallbackLabel, fallbackColor);
+  }
 }
 
 async function writeJson(name: string, data: unknown[]) {
@@ -139,8 +171,28 @@ async function main() {
     status: "pending" | "approved" | "rejected";
     availability: "available" | "reserved" | "swapped";
     color: string;
+    imageUrl: string;
     createdAgoDays: number;
   };
+
+  // Real photos sourced from Wikimedia Commons (freely licensed, no API key
+  // needed) so the demo looks realistic instead of plain colored boxes.
+  // Attribution (required by their CC BY / CC BY-SA licenses):
+  //   Denim Jacket    — Etelä-Karjalan museo, CC BY 4.0
+  //   Floral Dress    — Super Rabbit One from UK, CC BY-SA 2.0
+  //   White Sneakers  — Beryl_snw, CC0
+  //   Wool Scarf      — Sarahflowers, CC BY-SA 3.0
+  //   Graphic T-Shirt — Victoria, CC BY-SA 4.0
+  //   Slim Fit Chinos — May Lee, CC BY-SA 2.0
+  //   Leather Belt    — David Adam Kess, CC BY-SA 4.0
+  //   Running Shorts  — Wikimedia Commons, CC BY 2.5
+  //   Knit Sweater    — Auckland Museum, CC BY 4.0
+  //   High-Waist Jeans— Skaja Lee, CC BY-SA 2.0
+  //   Puffer Vest     — Adenosine Triphosphate, CC BY-SA 4.0
+  //   Canvas Tote Bag — Tom Beatty, CC BY 2.0
+  //   Hoodie          — Rezasaad.art, CC BY-SA 4.0
+  // Full source pages: https://commons.wikimedia.org/wiki/<File title>
+
 
   const itemDefs: SeedItemDef[] = [
     {
@@ -156,6 +208,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#3b82f6",
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/f/ff/1980s_blue_denim_jacket%2C_Finland_%E2%80%93_01.jpg",
       createdAgoDays: 20,
     },
     {
@@ -171,6 +225,7 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#ec4899",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ac/Summer_dress_%28147201979%29.jpg",
       createdAgoDays: 18,
     },
     {
@@ -186,6 +241,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#e5e7eb",
+      imageUrl:
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/A_girl_wearing_white_shoes_and_skirt%3B_April_2016_%2802%29.jpg/960px-A_girl_wearing_white_shoes_and_skirt%3B_April_2016_%2802%29.jpg",
       createdAgoDays: 15,
     },
     {
@@ -201,6 +258,7 @@ async function main() {
       status: "pending",
       availability: "available",
       color: "#7c2d12",
+      imageUrl: "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/CashScarf.JPG/960px-CashScarf.JPG",
       createdAgoDays: 1,
     },
     {
@@ -216,6 +274,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#111827",
+      imageUrl:
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/T_shirt_with_print_imitating_traditional_Belarusian_embroidery.jpg/960px-T_shirt_with_print_imitating_traditional_Belarusian_embroidery.jpg",
       createdAgoDays: 25,
     },
     {
@@ -231,6 +291,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#a16207",
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/e/ec/Man_wearing_blue_denim_shirt_with_rolled_sleeves%2C_tan_chinos_1.jpg",
       createdAgoDays: 22,
     },
     {
@@ -246,6 +308,8 @@ async function main() {
       status: "approved",
       availability: "reserved",
       color: "#78350f",
+      imageUrl:
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/%28_%29_belt_buckle_blue_jeans_brown_leather_belt.jpg/960px-%28_%29_belt_buckle_blue_jeans_brown_leather_belt.jpg",
       createdAgoDays: 12,
     },
     {
@@ -261,6 +325,7 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#059669",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/52/Running-shorts-black.png",
       createdAgoDays: 10,
     },
     {
@@ -276,6 +341,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#d97706",
+      imageUrl:
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Sweater_top_%28AM_2015.29.3-1%29.jpg/960px-Sweater_top_%28AM_2015.29.3-1%29.jpg",
       createdAgoDays: 28,
     },
     {
@@ -291,6 +358,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#1e3a8a",
+      imageUrl:
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/2021_urban_summer_fashion%2C_Andrea_Martinez_portrait.jpeg/960px-2021_urban_summer_fashion%2C_Andrea_Martinez_portrait.jpeg",
       createdAgoDays: 14,
     },
     {
@@ -306,6 +375,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#1d4ed8",
+      imageUrl:
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Adidas_Helionic_Down_vest.jpg/960px-Adidas_Helionic_Down_vest.jpg",
       createdAgoDays: 8,
     },
     {
@@ -321,6 +392,8 @@ async function main() {
       status: "approved",
       availability: "available",
       color: "#92400e",
+      imageUrl:
+        "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Canvas_two-tone_tote_Navy_and_Natural7_%289038437258%29.jpg/960px-Canvas_two-tone_tote_Navy_and_Natural7_%289038437258%29.jpg",
       createdAgoDays: 5,
     },
     {
@@ -336,6 +409,7 @@ async function main() {
       status: "rejected",
       availability: "available",
       color: "#4b5563",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/1/16/Young_man_with_hoodie.jpg",
       createdAgoDays: 30,
     },
   ];
@@ -343,7 +417,7 @@ async function main() {
   const items: Item[] = [];
   for (const def of itemDefs) {
     const slug = def.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
-    const image = await saveSeedImage(slug, def.title, def.color);
+    const image = await fetchSeedImage(slug, def.imageUrl, def.title, def.color);
     items.push({
       id: uuidv4(),
       ownerId: def.ownerId,
