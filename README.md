@@ -1,4 +1,4 @@
-# ReWear – Community Clothing Exchange
+# ReWear Community Clothing Exchange
 
 Swap unused clothing directly or redeem items with points. A demo-ready,
 full-stack Next.js app with **no external database** — everything is
